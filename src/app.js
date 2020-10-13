@@ -7,6 +7,7 @@ const geocode = require("./utils/geocode"); // importing geocode function
 const forecast = require("./utils/forecast"); // importing forecast function
 
 const app = express(); // express() initializes an express server. All methods listed below this line configure the server to fulfill it's specified tasks
+const port = process.env.PORT || 3000 // environment variable where the PORT setup by Heroku is stored and used to launch the server on their end. 
 
 // ============ Define paths for Express Config ============= //
 const publicDirectoryPath = path.join(__dirname, "../public"); // '__dirname' returns the path of where the current script is found
@@ -112,9 +113,9 @@ app.get("*", (req, res) => {
 // To get a better understanding of how these app methods work, visit the Express API Documentation @ http://expressjs.com/en/4x/api.html#app
 
 // To start up the server
-app.listen(3000, () => {
+app.listen(port, () => {
   // => receives a port #
-  console.log("Server is up on port 3000.");
+  console.log(`Server is up on port ${port}`);
 });
 
 // ======== End of Document =========== //
